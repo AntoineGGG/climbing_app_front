@@ -1,0 +1,35 @@
+.routes-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid;
+  text-align: center;
+  padding-left: 50px;
+}
+
+.routes-form-container-disabled {
+  display: none;
+}
+
+.routes-form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.routes-form-container form input {
+  margin: 30px;
+  width: 150px;
+  height: 30px;
+}
+
+.routelist {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.routes-view {
+  margin: 20px;
+  padding: 20px;
+  border: solid;
+}
