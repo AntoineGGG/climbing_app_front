@@ -1,0 +1,21 @@
+.routes-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.routes-list img {
+  width: 100%;
+}
+
+.all-crag-infos {
+  text-align: center;
+  margin: 50px;
+}
+
+.routes-view {
+  background-color: #f2f3f4;
+  border-radius: 5px;
+}
+.routes-infos-container {
+  padding: 20px;
+}

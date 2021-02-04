@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: solid;
   text-align: center;
   padding-left: 50px;
 }
@@ -14,12 +13,36 @@
 .routes-form-container form {
   display: flex;
   flex-direction: column;
+  position: relative;
+  min-width: 500px;
+  background-color: #e6e6e6;
+  border: 2px solid rgba(0, 0, 0, 0.226);
+  border-radius: 5px;
+  padding: 20px;
 }
-
-.routes-form-container form input {
-  margin: 30px;
-  width: 150px;
-  height: 30px;
+form input {
+  border-radius: 2px;
+  border: 1px solid white;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  width: 100%;
+}
+form select {
+  border-radius: 2px;
+  border: 1px solid white;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  width: 100%;
+}
+form textarea {
+  border-radius: 2px;
+  border: 1px solid white;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  width: 100%;
 }
 
 .routelist {
@@ -28,8 +51,32 @@
   flex-wrap: wrap;
 }
 
+.routelist img {
+  width: 100%;
+}
+
 .routes-view {
+  display: flex;
+  flex-direction: column;
   margin: 20px;
-  padding: 20px;
-  border: solid;
+  max-width: 400px;
+  line-height: 1.8rem;
+}
+
+.routes-img {
+  width: 100%;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+}
+
+.field {
+  margin: 20px;
+}
+.routes-infos {
+  display: flex;
 }
