@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { getCollection, makeEntityAdder } from '../services/API';
+import { Link } from 'react-router-dom';
 
 import './styles/CragRoutes.css';
 const URL = process.env.REACT_APP_API_BASE_URL;
@@ -46,19 +47,31 @@ const CragRoutes = () => {
   };
   return (
     <div className='routes-container'>
-      <h1>Your routes</h1>
-      <p>
-        You can find here all your recorded routes, create new ones and edit
-        your notes for each of them.
-      </p>
-      <p>
-        Remember that when your publish a route, everyone on the app can find it
-        in the main routes list !
-      </p>
-      <div className='create-routes-button'>
-        <button type='button' onClick={handleShow}>
-          One More Routes
-        </button>
+      <div
+        className='routes-container-infos'
+        style={{
+          backgroundImage: "url('/images/magnesie.png')",
+        }}
+      >
+        <div className='routes-container-infos-text'>
+          <h1>Your routes</h1>
+          <p>
+            You can find here all your recorded routes, create new ones and edit
+            your notes for each of them.
+          </p>
+          <p>
+            Remember that when your publish a route, everyone on the app can
+            find it in the main routes list !
+          </p>
+        </div>
+        <div className='create-routes-button'>
+          <button type='button' onClick={handleShow}>
+            One More Routes
+          </button>
+          <Link to='/routes/all'>
+            <button type='button'>Show me the shared routes</button>
+          </Link>
+        </div>
       </div>
       <div
         className={

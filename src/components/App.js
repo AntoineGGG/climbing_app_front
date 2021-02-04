@@ -7,6 +7,7 @@ import CragRoutes from './CragRoutes';
 import Crags from './Crags';
 import Home from './Home';
 import AllCragRoutes from './AllCragRoutes';
+import Footer from './Footer';
 import history from '../history';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route exact path='/routes/all' component={AllCragRoutes} />
           <Route exact path='/crags' component={Crags} />
         </Switch>
+        <Footer />
       </Router>
     </div>
   );

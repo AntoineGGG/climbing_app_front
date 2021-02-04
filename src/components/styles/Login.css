@@ -1,0 +1,29 @@
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.stay-connected-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-group {
+  display: flex;
+  justify-content: center;
+}
+
+.form-group button {
+  margin: 20px;
+  padding: 10px;
+  background-color: #c7cfc7a1;
+  border: 2px solid black;
+  border-radius: 5px;
+  color: black;
+  font-size: 1.2rem;
+}
+.form-control {
+  border: 1px solid black;
+}

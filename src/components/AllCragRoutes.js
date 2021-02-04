@@ -20,12 +20,17 @@ const AllCragRoutes = () => {
   console.log(allRoutes);
   return (
     <div className='all-crag-routes-container'>
-      <div className='all-crag-infos'>
-        <h1>Shared Routes List</h1>
-        <p>
-          Here you can find all the climbing routes shared by climbers for
-          climbers, feel free to discover them...
-        </p>
+      <div
+        className='all-crag-infos'
+        style={{ backgroundImage: "url('/images/allcrag.jpeg')" }}
+      >
+        <div className='all-crag-infos-text'>
+          <h1>Shared Routes List</h1>
+          <p>
+            Here you can find all the climbing routes shared by climbers for
+            climbers, feel free to discover them...
+          </p>
+        </div>
       </div>
       <div className='routes-list'>
         {allRoutes.map((routes) => {

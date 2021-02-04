@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import './styles/Login.css';
 
 import API from '../services/API';
 
@@ -26,7 +27,13 @@ const Login = (props) => {
     setPassword('');
   };
   return (
-    <div className='login-page'>
+    <div
+      className='login-page'
+      style={{
+        backgroundImage: "url('/images/crag.jpeg')",
+        backgroundSize: 'cover',
+      }}
+    >
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className='field'>
           <input
@@ -57,6 +64,7 @@ const Login = (props) => {
           <div className='stay-connected-container'>
             <div className='stay-connected'>
               <label htmlFor='stayConnected'>
+                <div className='stay-connected-text'>Rester connecté(e)</div>
                 <input
                   ref={register}
                   name='stayConnected'
@@ -65,7 +73,6 @@ const Login = (props) => {
                   value={stayConnected}
                   onClick={() => setStayConnected(true)}
                 />
-                Rester connecté(e)
               </label>
             </div>
           </div>
@@ -74,18 +81,6 @@ const Login = (props) => {
             <button type='submit' className='button'>
               connexion
             </button>
-            <div className='infoCreation'>
-              <p>
-                La création de votre espace peut prendre jusqu'à 72h à compter
-                de la réception de l'adhésion.
-              </p>
-            </div>
-            <div className='forgotten-password'>
-              Mot de passe oublié ?{' '}
-              <a className='email-admin' href='mailto:contact@oufgarden.com'>
-                Contacter Ouf!
-              </a>
-            </div>
           </div>
         </div>
       </form>

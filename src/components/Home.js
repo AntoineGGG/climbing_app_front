@@ -11,7 +11,7 @@ const Home = () => {
         style={{ backgroundImage: "url('/images/image-home.jpg')" }}
       >
         <div className='welcome-message'>
-          <p> Welcome to Climbing Crag</p>
+          <p> Welcome to Climbing Crag !</p>
           <p>
             Here you can find your all of your routes that you've done or not
             and share it with other climbers
