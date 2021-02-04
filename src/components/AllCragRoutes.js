@@ -17,7 +17,6 @@ const AllCragRoutes = () => {
       setAllRoutes(data);
     });
   }, []);
-  console.log(allRoutes);
   return (
     <div className='all-crag-routes-container'>
       <div
@@ -33,9 +32,9 @@ const AllCragRoutes = () => {
         </div>
       </div>
       <div className='routes-list'>
-        {allRoutes.map((routes) => {
+        {allRoutes.map((routes, i) => {
           return (
-            <div className='routes-view'>
+            <div key={i} className='routes-view'>
               <IconContext.Provider value={{ className: 'react-icons' }}>
                 <div className='routes-img'>
                   <img src={`${URL}/${routes.picture}`} alt='routes pictures' />

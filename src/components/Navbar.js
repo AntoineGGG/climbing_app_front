@@ -1,14 +1,9 @@
 import React from 'react';
 import './styles/Navbar.css';
-import history from '../history';
 
 import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router';
 
 const Navbar = () => {
-  if (history.location.pathname === '/') {
-    return false;
-  }
   return (
     <div className='nav'>
       <h1>Climbing Crags</h1>
@@ -27,4 +22,4 @@ const Navbar = () => {
   );
 };
 
-export default withRouter(Navbar);
+export default Navbar;

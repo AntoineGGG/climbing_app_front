@@ -2,20 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { getCollection, makeEntityAdder } from '../services/API';
 import { Link } from 'react-router-dom';
+import { IconContext } from 'react-icons';
+import { MdGrade, MdCallSplit } from 'react-icons/md';
+import { GiCrags } from 'react-icons/gi';
+import { AiOutlineCheck, AiOutlineColumnWidth } from 'react-icons/ai';
+import { CgNotes } from 'react-icons/cg';
 
 import './styles/CragRoutes.css';
+import './styles/AllCragRoutes.css';
 const URL = process.env.REACT_APP_API_BASE_URL;
 
-const CragRoutes = () => {
+const CragRoutes = (props) => {
   const { register, handleSubmit } = useForm();
   const [routes, setRoutes] = useState([]);
   const [crags, setCrags] = useState([]);
   const [showAddRoutes, setShowAddRoutes] = useState(false);
-  const [
-    flagToRenderAfterCreateRoute,
-    setFlagToRenderAfterCreateRoute,
-  ] = useState(true);
-  console.log(routes);
+
   useEffect(() => {
     getCollection('routes').then((data) => {
       setRoutes(data);
@@ -27,18 +29,13 @@ const CragRoutes = () => {
       setCrags(data);
     });
   }, []);
-  console.log(crags);
   const onSubmit = async (data) => {
     const newData = { ...data };
     const formData = new FormData();
     formData.append('picture', data.picture[0]);
     formData.append('data', JSON.stringify(newData));
     await makeEntityAdder('routes')(formData).then(() => {
-      setRoutes([]);
-      setCrags([]);
-      if (showAddRoutes === false) {
-        setFlagToRenderAfterCreateRoute(!flagToRenderAfterCreateRoute);
-      }
+      setShowAddRoutes(!showAddRoutes);
     });
   };
 
@@ -126,9 +123,11 @@ const CragRoutes = () => {
           </label>
           <label htmlFor='comment'>
             Comment your ascent:
-            <textarea name='comment' ref={register}>
-              Writte your notes here...
-            </textarea>
+            <textarea
+              defaultValue='Write your notes here...'
+              name='comment'
+              ref={register}
+            ></textarea>
           </label>
 
           <input type='submit' />
@@ -137,34 +136,60 @@ const CragRoutes = () => {
 
       {routes.length > 0 && (
         <div className='routelist'>
-          {routes.map((myRoutes) => {
+          {routes.map((myRoutes, i) => {
             return (
-              <div className='routes-view'>
-                <div className='routes-img'>
-                  <img
-                    src={`${URL}/${myRoutes.picture}`}
-                    alt='routes pictures'
-                  />
-                </div>
-                <p>
-                  <strong>Name:</strong> {myRoutes.name}
-                </p>
-                <p>
-                  <strong>Multipitch:</strong>{' '}
-                  {myRoutes.multipitch === 0 ? 'No' : 'Yes'}
-                </p>
-                <p>
-                  <strong>Grade:</strong> {myRoutes.grade}
-                </p>
-                <p>
-                  <strong>Done:</strong> {myRoutes.done === 0 ? 'No' : 'Yes'}
-                </p>
-                <p>
-                  <strong>Length:</strong> {myRoutes.length} feet
-                </p>
-                <p>
-                  <strong>Notes:</strong> {myRoutes.comment}
-                </p>
+              <div key={i} className='routes-view'>
+                <IconContext.Provider value={{ className: 'react-icons' }}>
+                  <div className='routes-img'>
+                    <img
+                      src={`${URL}/${myRoutes.picture}`}
+                      alt='routes pictures'
+                    />
+                  </div>
+                  <div className='routes-infos-container'>
+                    <div className='routes-infos'>
+                      <GiCrags size={25} style={{ marginRight: 10 }} />
+                      <p>
+                        <strong>Name:</strong> {myRoutes.name}
+                      </p>
+                    </div>
+                    <div className='routes-infos'>
+                      <MdCallSplit size={25} style={{ marginRight: 10 }} />
+                      <p>
+                        <strong>Multipitch:</strong>{' '}
+                        {myRoutes.multipitch === 0 ? 'No' : 'Yes'}
+                      </p>
+                    </div>
+                    <div className='routes-infos'>
+                      <MdGrade size={25} style={{ marginRight: 10 }} />
+                      <p>
+                        <strong>Grade:</strong> {myRoutes.grade}
+                      </p>
+                    </div>
+                    <div className='routes-infos'>
+                      <AiOutlineCheck size={25} style={{ marginRight: 10 }} />
+                      <p>
+                        <strong>Done:</strong>{' '}
+                        {myRoutes.done === 0 ? 'No' : 'Yes'}
+                      </p>
+                    </div>
+                    <div className='routes-infos'>
+                      <AiOutlineColumnWidth
+                        size={25}
+                        style={{ marginRight: 10 }}
+                      />
+                      <p>
+                        <strong>Length:</strong> {myRoutes.length} feet
+                      </p>
+                    </div>
+                    <div className='routes-infos'>
+                      <CgNotes size={25} style={{ marginRight: 10 }} />
+                      <p>
+                        <strong>Notes:</strong> {myRoutes.comment}
+                      </p>
+                    </div>
+                  </div>
+                </IconContext.Provider>
               </div>
             );
           })}

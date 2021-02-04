@@ -1,0 +1,28 @@
+.all-crags {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.8rem;
+}
+
+.all-crags button {
+  font-size: 1.2rem;
+  margin: 20px;
+  padding: 10px;
+  background-color: #c7cfc7b4;
+  border: 2px solid black;
+  border-radius: 5px;
+  color: black;
+}
+
+.all-crags button:hover {
+  background-color: #c7cfc760;
+}
+
+@media screen and (max-width: 400px) {
+  .all-crags {
+    text-align: center;
+  }
+}

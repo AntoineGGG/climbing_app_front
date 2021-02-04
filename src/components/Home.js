@@ -22,7 +22,7 @@ const Home = () => {
           <Link to='/routes/all'>
             <button type='button'>Go to the routes list</button>
           </Link>
-          <Link to='/routes/crags'>
+          <Link to='/crags/all'>
             <button type='button'>Show me the crags !!</button>
           </Link>
         </div>

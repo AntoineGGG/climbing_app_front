@@ -16,6 +16,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
     "react-use-localstorage": "^3.5.3",
+    "use-local-storage": "^2.0.1",
     "web-vitals": "^1.1.0"
   },
   "scripts": {

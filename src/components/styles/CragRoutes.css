@@ -3,6 +3,8 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  padding-bottom: 50px;
+  height: 100%;
 }
 
 .routes-form-container-disabled {
@@ -11,7 +13,7 @@
 
 .routes-container-infos {
   width: 100%;
-  height: 50vh;
+  height: 80vh;
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -53,7 +55,6 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  min-width: 500px;
   background-color: #e6e6e6;
   border: 2px solid rgba(0, 0, 0, 0.226);
   border-radius: 5px;
@@ -118,4 +119,19 @@ label {
 }
 .routes-infos {
   display: flex;
+}
+
+@media screen and (max-width: 400px) {
+  .routes-container-infos {
+    height: 100%;
+  }
+
+  .routes-container-infos-text {
+    height: 100%;
+    margin: 20px;
+  }
+
+  .routes-form-container form {
+    width: 100%;
+  }
 }

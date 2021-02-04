@@ -42,3 +42,12 @@
 .routes-infos-container {
   padding: 20px;
 }
+
+@media screen and (max-width: 400px) {
+  .all-crag-infos-text {
+    text-align: center;
+    height: 100%;
+    line-height: 1.9rem;
+    margin: 20px;
+  }
+}
