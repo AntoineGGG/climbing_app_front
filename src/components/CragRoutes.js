@@ -3,10 +3,12 @@ import { useForm } from 'react-hook-form';
 import { getCollection, makeEntityAdder } from '../services/API';
 import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
-import { MdGrade, MdCallSplit } from 'react-icons/md';
+import { MdGrade, MdCallSplit, MdInsertEmoticon } from 'react-icons/md';
 import { GiCrags } from 'react-icons/gi';
 import { AiOutlineCheck, AiOutlineColumnWidth } from 'react-icons/ai';
 import { CgNotes } from 'react-icons/cg';
+import { SiCodeclimate } from 'react-icons/si';
+import { GrMapLocation } from 'react-icons/gr';
 
 import './styles/CragRoutes.css';
 import './styles/AllCragRoutes.css';
@@ -42,6 +44,7 @@ const CragRoutes = (props) => {
   const handleShow = () => {
     setShowAddRoutes(!showAddRoutes);
   };
+
   return (
     <div className='routes-container'>
       <div
@@ -111,8 +114,12 @@ const CragRoutes = (props) => {
             <label htmlFor='Crag_id'>
               Which Crag ?
               <select name='Crag_id' ref={register}>
-                {crags.map((elem) => {
-                  return <option value={elem.id}>{elem.name}</option>;
+                {crags.map((elem, i) => {
+                  return (
+                    <option key={i} value={elem.id}>
+                      {elem.name}
+                    </option>
+                  );
                 })}
               </select>
             </label>
@@ -150,9 +157,22 @@ const CragRoutes = (props) => {
                     <div className='routes-infos'>
                       <GiCrags size={25} style={{ marginRight: 10 }} />
                       <p>
-                        <strong>Name:</strong> {myRoutes.name}
+                        <strong>Route Name:</strong> {myRoutes.routes_name}
                       </p>
                     </div>
+                    <div className='routes-infos'>
+                      <SiCodeclimate size={25} style={{ marginRight: 10 }} />
+                      <p>
+                        <strong>Crag Name:</strong> {myRoutes.crags_name}
+                      </p>
+                    </div>
+                    <div className='routes-infos'>
+                      <GrMapLocation size={25} style={{ marginRight: 10 }} />
+                      <p>
+                        <strong>Loation:</strong> {myRoutes.city}
+                      </p>
+                    </div>
+
                     <div className='routes-infos'>
                       <MdCallSplit size={25} style={{ marginRight: 10 }} />
                       <p>
@@ -180,6 +200,13 @@ const CragRoutes = (props) => {
                       />
                       <p>
                         <strong>Length:</strong> {myRoutes.length} feet
+                      </p>
+                    </div>
+                    <div className='routes-infos'>
+                      <MdInsertEmoticon size={25} style={{ marginRight: 10 }} />
+                      <p>
+                        <strong>Author:</strong> {myRoutes.firstname}{' '}
+                        {myRoutes.lastname}
                       </p>
                     </div>
                     <div className='routes-infos'>

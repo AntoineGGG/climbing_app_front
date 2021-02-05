@@ -19,6 +19,9 @@ const Home = () => {
           <p>Enjoy it, and happy climbing !!</p>
         </div>
         <div className='list-home-button'>
+          <Link to='/routes'>
+            <button type='button'>Go to my Routes Book !</button>
+          </Link>
           <Link to='/routes/all'>
             <button type='button'>Go to the routes list</button>
           </Link>
