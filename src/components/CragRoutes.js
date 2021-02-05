@@ -44,7 +44,6 @@ const CragRoutes = (props) => {
   const handleShow = () => {
     setShowAddRoutes(!showAddRoutes);
   };
-
   return (
     <div className='routes-container'>
       <div
@@ -117,7 +116,7 @@ const CragRoutes = (props) => {
                 {crags.map((elem, i) => {
                   return (
                     <option key={i} value={elem.id}>
-                      {elem.name}
+                      {elem.crags_name}
                     </option>
                   );
                 })}
