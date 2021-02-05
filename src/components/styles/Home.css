@@ -21,9 +21,48 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
 }
 
 .welcome-message p {
   line-height: 50px;
   font-size: 1.8rem;
+}
+.list-home-button button {
+  margin: 20px;
+  padding: 10px;
+  background-color: #c7cfc7a1;
+  border: 2px solid black;
+  border-radius: 5px;
+  color: black;
+  font-size: 1.2rem;
+}
+.list-home-button button:hover {
+  background-color: #f6faf6dc;
+}
+
+@media screen and (max-width: 400px) {
+  .home-container {
+    height: 100vh;
+  }
+  .bandeau-img {
+    height: 100%;
+    padding-top: 30px;
+  }
+  .welcome-message {
+    height: 100%;
+    margin: 20px;
+    background-color: #eff3f7bb;
+    padding: 0;
+  }
+  .welcome-message p {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+  }
+  .list-home-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

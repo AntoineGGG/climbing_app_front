@@ -11,7 +11,7 @@ const Home = () => {
         style={{ backgroundImage: "url('/images/image-home.jpg')" }}
       >
         <div className='welcome-message'>
-          <p> Welcome to Climbing Crag</p>
+          <p> Welcome to Climbing Crag !</p>
           <p>
             Here you can find your all of your routes that you've done or not
             and share it with other climbers
@@ -19,10 +19,13 @@ const Home = () => {
           <p>Enjoy it, and happy climbing !!</p>
         </div>
         <div className='list-home-button'>
+          <Link to='/routes'>
+            <button type='button'>Go to my Routes Book !</button>
+          </Link>
           <Link to='/routes/all'>
             <button type='button'>Go to the routes list</button>
           </Link>
-          <Link to='/routes/crags'>
+          <Link to='/crags/all'>
             <button type='button'>Show me the crags !!</button>
           </Link>
         </div>

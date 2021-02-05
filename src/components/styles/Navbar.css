@@ -25,9 +25,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
   }
   .nav ul {
-    padding-top: 30px;
+    padding-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;

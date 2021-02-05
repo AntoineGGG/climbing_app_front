@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { getCollection } from '../services/API';
 import { IconContext } from 'react-icons';
-import { MdGrade, MdCallSplit } from 'react-icons/md';
+import { MdGrade, MdCallSplit, MdInsertEmoticon } from 'react-icons/md';
 import { GiCrags } from 'react-icons/gi';
 import { AiOutlineCheck, AiOutlineColumnWidth } from 'react-icons/ai';
 import { CgNotes } from 'react-icons/cg';
+import { SiCodeclimate } from 'react-icons/si';
+import { GrMapLocation } from 'react-icons/gr';
 
 import './styles/AllCragRoutes.css';
 
@@ -17,20 +19,24 @@ const AllCragRoutes = () => {
       setAllRoutes(data);
     });
   }, []);
-  console.log(allRoutes);
   return (
     <div className='all-crag-routes-container'>
-      <div className='all-crag-infos'>
-        <h1>Shared Routes List</h1>
-        <p>
-          Here you can find all the climbing routes shared by climbers for
-          climbers, feel free to discover them...
-        </p>
+      <div
+        className='all-crag-infos'
+        style={{ backgroundImage: "url('/images/allcrag.jpeg')" }}
+      >
+        <div className='all-crag-infos-text'>
+          <h1>Shared Routes List</h1>
+          <p>
+            Here you can find all the climbing routes shared by climbers for
+            climbers, feel free to discover them...
+          </p>
+        </div>
       </div>
       <div className='routes-list'>
-        {allRoutes.map((routes) => {
+        {allRoutes.map((routes, i) => {
           return (
-            <div className='routes-view'>
+            <div key={i} className='routes-view'>
               <IconContext.Provider value={{ className: 'react-icons' }}>
                 <div className='routes-img'>
                   <img src={`${URL}/${routes.picture}`} alt='routes pictures' />
@@ -39,7 +45,19 @@ const AllCragRoutes = () => {
                   <div className='routes-infos'>
                     <GiCrags size={25} style={{ marginRight: 10 }} />
                     <p>
-                      <strong>Name:</strong> {routes.name}
+                      <strong>Route Name:</strong> {routes.routes_name}
+                    </p>
+                  </div>
+                  <div className='routes-infos'>
+                    <SiCodeclimate size={25} style={{ marginRight: 10 }} />
+                    <p>
+                      <strong>Crag Name:</strong> {routes.crags_name}
+                    </p>
+                  </div>
+                  <div className='routes-infos'>
+                    <GrMapLocation size={25} style={{ marginRight: 10 }} />
+                    <p>
+                      <strong>Loation:</strong> {routes.city}
                     </p>
                   </div>
                   <div className='routes-infos'>
@@ -68,6 +86,13 @@ const AllCragRoutes = () => {
                     />
                     <p>
                       <strong>Length:</strong> {routes.length} feet
+                    </p>
+                  </div>
+                  <div className='routes-infos'>
+                    <MdInsertEmoticon size={25} style={{ marginRight: 10 }} />
+                    <p>
+                      <strong>Author:</strong> {routes.firstname}{' '}
+                      {routes.lastname}
                     </p>
                   </div>
                   <div className='routes-infos'>
